@@ -3,7 +3,7 @@ from django.db import models
 class Team(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
-    logo = models.ImageField(upload_to='/media/')
+    logo = models.ImageField(upload_to='media')
     code = models.IntegerField()
 
     def __str__(self):
@@ -19,7 +19,7 @@ class Player(models.Model):
 	email = models.EmailField()
 	height = models.DecimalField(max_digits=4, decimal_places=2, default=0) #estatura 
 	weight = models.DecimalField(max_digits=4, decimal_places=2, default=0) #peso 
-	photo = models.ImageField(upload_to='/media/')
+	photo = models.ImageField(upload_to='media')
 	POSITIONS_CHOICES = (
 		('BASE', 'Base'),
 		('ESCOLTA', 'Escolta'),
