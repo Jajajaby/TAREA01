@@ -3,13 +3,25 @@ from tarea01.models import Team, Player, Coach, SoccerGame
 
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'code') # ('name', 'description', 'logo', 'code') 
+    list_display = ('name', 'description', 'logo', 'code') 
+	#list_filter = ('name') FALTA FECHA DE NAC
+	search_fields = ['name']
+	def _thumbnail(self, obj):
+		if obj.logo:
+			return mark_safe(u'<img src="/media/%s" alt="" width="25" height="25" />' % (obj.logo))
+		else:
+			return "[No Image]"
 
 
 @admin.register(Player)
 class PlayerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'nickname', 'birthday', 'age', 'rut') #('name', 'nickname', 'birthday', 'age', 'rut', 'email', 'height', 'weight', 'photo', 'position')
-    #list_filter = ('album', 'duration')
+    list_display = ('name', 'nickname', 'birthday', 'age', 'rut', 'email', 'height', 'weight', 'photo', 'position')
+    search_fields = ['name', 'nickname', 'rut']
+    def _thumbnail(self, obj):
+		if obj.photo:
+			return mark_safe(u'<img src="/media/%s" alt="" width="25" height="25" />' % (obj.photo))
+		else:
+			return "[No Image]"
 
 
 @admin.register(Coach)

@@ -6,5 +6,5 @@ urlpatterns = [
     # url(r'^$', 'mysite.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^django-admin/', admin.site.urls) #ESA ES DJANGO2. ESTA ERA DJANGO 1.8 url(r'^admin/', include(admin.site.urls)),
 ]
