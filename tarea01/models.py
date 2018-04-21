@@ -11,6 +11,7 @@ class Team(models.Model):
 
 
 class Player(models.Model):
+	team = models.ForeignKey(Team, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200)
 	nickname = models.CharField(max_length=50)
 	birthday = models.DateField() 
@@ -36,6 +37,7 @@ class Player(models.Model):
 
 
 class Coach(models.Model):
+	team = models.ForeignKey(Team, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200)
 	age = models.IntegerField()
 	email = models.EmailField()
@@ -47,6 +49,7 @@ class Coach(models.Model):
 
 
 class SoccerGame(models.Model):
+	team = models.ForeignKey(Team, on_delete=models.CASCADE)
 	name = models.CharField(max_length=100)
 
 	def __str__(self):
