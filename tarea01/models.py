@@ -48,7 +48,7 @@ class Coach(models.Model):
 		return self.name
 
 
-class SoccerGame(models.Model):
+class BasketGame(models.Model):
 	team = models.ForeignKey(Team, on_delete=models.CASCADE)
 	name = models.CharField(max_length=100)
 

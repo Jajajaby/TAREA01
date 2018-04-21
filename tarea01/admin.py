@@ -1,5 +1,5 @@
 from django.contrib import admin
-from tarea01.models import Team, Player, Coach, SoccerGame
+from tarea01.models import Team, Player, Coach, BasketGame
 
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
@@ -29,6 +29,6 @@ class CoachAdmin(admin.ModelAdmin):
 	list_display = ('name', 'age', 'email', 'rut', 'nickname')
 
 
-@admin.register(SoccerGame)
-class SoccerGame(admin.ModelAdmin):
+@admin.register(BasketGame)
+class BasketGame(admin.ModelAdmin):
 	list_display = ('name', 'name')
